@@ -1,3 +1,120 @@
 ---
-$END$
+import IconLinks from "./IconLinks.astro";
 ---
+
+<header>
+    <a href="/">Damian Figueroa</a>
+    <IconLinks links={[{
+        icon: "mdiGithub",
+        url: "https://github.com/djfigs1"
+    },
+    {
+        icon: "mdiLinkedin",
+        url: "https://linkedin.com/in/djfigs"
+    },
+    {
+        icon: "mdiEmail",
+        url: "mailto:djfigs@outlook.com"
+    }]} />
+</header>
+<style>
+    header {
+        position: fixed;
+        box-sizing: border-box;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.25rem;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 1;
+        color: white;
+        font-size: 1.25em;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        background: var(--dark-background);
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0.25rem;
+        border-color: var(--dj-red);
+
+        border-style: solid;
+    }
+
+    header > * {
+        z-index: 3;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--text);
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    nav {
+        display: flex;
+        gap: 2rem;
+        justify-content: right;
+        align-items: center;
+        flex: 1;
+        transition: max-height var(--nav-open-time) ease-in-out;
+        overflow: hidden;
+    }
+
+    label {
+        display: none;
+        justify-content: right;
+        align-items: center;
+        flex: 1;
+        margin-top: 0;
+    }
+
+    input {
+        appearance: none;
+    }
+
+    @media (orientation: portrait) {
+        header::after {
+            transition: opacity var(--nav-open-time) ease-in-out;
+            opacity: 0;
+            z-index: 2;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                    black 0%,
+                    black calc(100% - var(--blur-width)),
+                    transparent 100%
+            );
+            pointer-events: none;
+        }
+
+        header:has(> input:checked)::after {
+            opacity: 0.9;
+        }
+
+        nav {
+            flex-direction: column;
+            flex-basis: 100%;
+            padding-top: 2rem;
+            min-height: 2rem;
+            max-height: 2rem;
+            align-items: flex-start;
+        }
+
+        label {
+            display: flex;
+        }
+        //
+        //input:checked ~ nav {
+        //    max-height: calc(var(--numLinks) * 3.5rem);
+        //}
+    }
+</style>

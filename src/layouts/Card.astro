@@ -1,0 +1,34 @@
+---
+type Props = {
+  flex?: boolean | astroHTML.JSX.CSSProperties["flex"];
+  color?: string;
+  glow?: boolean;
+  padding?: astroHTML.JSX.CSSProperties["padding"];
+};
+
+const { color, flex, padding, } = Astro.props;
+---
+
+<div
+  class="card"
+  style={{
+    "--card-color": color,
+    padding: padding,
+    flex: typeof flex === "boolean" ? (flex ? 1 : undefined) : flex,
+  }}
+>
+  <slot />
+</div>
+<style>
+  .card {
+    --grid-size: 15px;
+    --card-color: var(--primary);
+    --background-color: color-mix(in srgb, var(--card-color) 10%, transparent);
+    --line-color: color-mix(in srgb, var(--card-color) 7.5%, transparent);
+    border: solid 0.1em var(--primary);
+    overflow: hidden;
+    border-radius: 1rem;
+    padding: 2rem;
+    background: var(--dark-background);
+  }
+</style>

@@ -1,0 +1,90 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Fox from "../assets/img/fox.png"
+import { getImage } from "astro:assets";
+
+const FoxImage = await getImage({ src: Fox });
+const FoxHref = FoxImage.src;
+---
+
+<!doctype html>
+<html>
+  <head>
+    <title>Damian Figueroa</title>
+    <meta name="theme-color" content="#110000" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" sizes="any" href={FoxHref} />
+    <link rel="apple-touch-icon" type="image/png" href={FoxHref}>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NT0WWDP3GH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NT0WWDP3GH');
+  </script>
+</html>
+<style>
+  :root {
+    --dj-red: #e61a31;
+    --dj-orange: #e6611a;
+    --primary: var(--dj-red);
+    --secondary: var(--dj-orange);
+    --text: rgb(255, 216, 216);
+    --background: #1c0000;
+    --dark-background: #110000;
+  }
+
+  body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
+    background: var(--background);
+    color: var(--text);
+  }
+
+  main {
+    min-height: 100vh;
+    margin-top: 6rem;
+  }
+</style>
+
+<style is:global>
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  a {
+    color: var(--secondary);
+  }
+
+  h1 {
+    color: var(--primary);
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--secondary);
+  }
+</style>

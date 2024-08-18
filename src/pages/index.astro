@@ -1,0 +1,140 @@
+---
+import Content from "../layouts/Content.astro";
+import Page from "../layouts/Page.astro";
+import { Image } from "astro:assets";
+import BannerImage from "../assets/img/banner.jpg";
+import Card from "../layouts/Card.astro";
+import Group from "../layouts/Group.astro";
+import Grid from "../layouts/Grid.astro";
+import CardHeader from "../components/CardHeader.astro";
+import Divider from "../components/Divider.astro";
+import Tactile from "../assets/img/tactile.png";
+import Button from "../components/Button.astro";
+---
+
+<Page>
+  <Content>
+    <div class="banner-container">
+      <Image
+        class="banner"
+        src={BannerImage}
+        alt="A picture of me hosting a workshop"
+      />
+    </div>
+
+    Welcome! My name is Damian Figueroa, and I am pursuing an undergraduate
+    degree in computer science at the University of Maryland: College Park. I
+    have had a life-long passion for software development and creatively using
+    technology to solve problems. Through personal projects, I have self-taught
+    myself in many different areas such as mobile app development, virtual
+    reality applications, robotics, games, cybersecurity, and backend software.
+    <br />
+    <br />
+    I am extremely passionate about the emerging "XR" field (virtual reality, augmented
+    reality, and mixed reality) and am currently the President of the <a
+      href="https://xr.umd.edu">XR Club at UMD</a
+    >. I greatly enjoy hosting workshops (as you can see above!) to educate our
+    club members about using the Unity game engine and other specialized topics.
+    <Divider />
+    <h1>Projects</h1>
+    <Grid numColumns={2}>
+      <Card>
+        <CardHeader>
+          <iframe
+            class="yt"
+            src="https://www.youtube.com/embed/3fcFcEk5Qxw?si=TBWilJEJx19wSjDo"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </CardHeader>
+        <h2>Terrality</h2>
+        I built this application at the University of Maryland Earth System Science
+        Interdisciplinary Center. It is capable of visualizing weather datasets and
+        displaying them on a globe. I also built the control-panel user-interface
+        to allow users to customize properties about the visualization.
+      </Card>
+      <Card>
+        <CardHeader>
+          <Image src={Tactile} alt="Tactile Package logo" />
+        </CardHeader>
+        <h2>Tactile</h2>
+        <Group>
+          As I have built Unity applications, I have created a group of useful
+          libraries that I call "Tactile". These include a command console,
+          helpful extension methods, animation functions, and more. You can
+          check them out under my "Figsware" GitHub organization.
+          <Button href="https://github.com/Figsware">View on GitHub</Button>
+        </Group>
+      </Card>
+      <Card>
+        <CardHeader>
+          <iframe
+            class="yt"
+            src="https://www.youtube.com/embed/fMpgtK0AlfQ?si=ugcW_1tqvgDA56tU"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </CardHeader>
+        <h2>A "Fire" Training App</h2>
+        <Group>
+          A group of friends and I attended MIT Reality Hack 2024 and built A
+          "Fire" Training App, which lets you practice fire evacuations in your
+          own home using the power of mixed-reality. We ended up winning the
+          Enhanced Education track!
+          <br />
+          <br />
+          I am the one with the fox beanie in the video :)
+          <Button href="https://devpost.com/software/a-fire-training-app"
+            >View on Devpost</Button
+          >
+        </Group>
+      </Card>
+    </Grid>
+    <Divider />
+    <h1>Resume</h1>
+    <embed src="/docs/resume.pdf" type="application/pdf" />
+  </Content>
+</Page>
+<style>
+
+  .banner-container {
+    position: relative;
+    border-radius: 0.5em;
+    overflow: hidden;
+    margin-bottom: 1em;
+    display: flex;
+  }
+
+  .banner-container:before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    background: var(--primary);
+    opacity: 20%;
+    pointer-events: none;
+  }
+
+  h1 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  embed {
+    width: 100%;
+    aspect-ratio: 11/8.5;
+  }
+
+  .yt {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+</style>

@@ -1,0 +1,39 @@
+---
+type Props = {
+  href: string;
+  buttonColor?: string;
+};
+
+let { href, buttonColor } = Astro.props;
+---
+
+<a target="_blank" rel="noopener noreferrer" href={href} style={{"--button-color": buttonColor}}>
+   <slot />
+</a>
+<style>
+  a {
+    box-sizing: content-box;
+    --button-color: var(--secondary);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    min-width: 10rem;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    border: solid 0.2em var(--button-color);
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 9999px;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+    transition: box-shadow 0.5s;
+    box-shadow: 0px 0px 25px transparent;
+  }
+
+  a:hover {
+    transition: box-shadow 0.1s;
+    box-shadow: 0px 0px 25px var(--button-color);
+  }
+</style>

@@ -1,0 +1,40 @@
+---
+
+---
+
+<div>
+  <slot />
+</div>
+<style>
+  div {
+    --grid-size: 15px;
+    --card-color: var(--dark-background);
+    --background-color: color-mix(in srgb, var(--card-color) 10%, transparent);
+    --line-color: color-mix(in srgb, var(--primary) 7.5%, transparent);
+    min-width: 100%;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 0.5em;
+    overflow: hidden;
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background-size: var(--grid-size) var(--grid-size);
+    background-position: calc(var(--grid-size) / 2) calc(var(--grid-size) / 2);
+    box-shadow:
+      inset 0 0 24px #00000065,
+      0 0 20px black;
+    border: solid 0.1em var(--line-color);
+    background-image: linear-gradient(
+        to right,
+        var(--line-color) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, var(--line-color) 1px, transparent 1px),
+      linear-gradient(var(--background-color), var(--background-color));
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

@@ -16,13 +16,26 @@ export type IconLink = {
 const { scale, links } = Astro.props;
 ---
 
-<Group noCollapse direction="row" justifyContent="center" alignItems="center">
+<Group noCollapse direction="row" justifyContent="center" alignItems="center" gap={2}>
   {
     links.map((l) => (
-      <a href={l.url}>
-        <MDIcon name={l.icon} scale={scale} />
+      <a target="_blank" rel="noopener noreferrer" href={l.url}>
+        <MDIcon name={l.icon} scale={scale} fill="#e6611a" />
       </a>
     ))
   }
 </Group>
-<style></style>
+<style>
+  a {
+    transition: border-color 0.5s;
+    border: 0;
+    border-bottom: 0.1rem solid;
+    border-color: transparent;
+    padding-bottom: -0.1rem;
+  }
+
+  a:hover {
+    transition: border-color 0.1s;
+    border-color: var(--secondary);
+  }
+</style>

@@ -5,14 +5,15 @@ export type MDIconType  = keyof typeof Icons;
 
 type Props = {
   name: MDIconType;
-  scale?: number
+  scale?: number,
+  fill?: string
 };
 
-const {name, scale} = Astro.props;
+const {name, scale, fill} = Astro.props;
 const d = Icons[name];
 const ScaledSize = 24 * (scale ?? 1);
 ---
 
 <svg width=`${ScaledSize}px` height=`${ScaledSize}px`>
-    <path d={d} fill="#ffffff" transform=`scale(${scale})`/>
+    <path d={d} fill={fill ?? "#ffffff"} transform=`scale(${scale})`/>
 </svg>
