@@ -56,14 +56,27 @@ const FoxHref = FoxImage.src;
     margin: 0;
     box-sizing: border-box;
     font-family: "Outfit", sans-serif;
-    background: var(--background);
+    background: var(--dark-background);
     color: var(--text);
+  }
+  
+  main::before {
+    background: var(--background);
+    display: block;
+    height: 6rem;
+    content: "";
+  }
+
+  @media (orientation: portrait) {
+    main::before {
+      height: 8rem;
+    }
   }
 
   main {
     min-height: 100vh;
-    margin-top: 6rem;
   }
+
 </style>
 
 <style is:global>

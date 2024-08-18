@@ -1,21 +1,24 @@
 ---
+import Group from "../layouts/Group.astro";
 import IconLinks from "./IconLinks.astro";
 ---
 
 <header>
-    <a href="/">Damian Figueroa</a>
-    <IconLinks links={[{
-        icon: "mdiGithub",
-        url: "https://github.com/djfigs1"
-    },
-    {
-        icon: "mdiLinkedin",
-        url: "https://linkedin.com/in/djfigs"
-    },
-    {
-        icon: "mdiEmail",
-        url: "mailto:djfigs@outlook.com"
-    }]} />
+    <Group justifyContent="space-between" direction="row" alignItems="center">
+        <a href="/">Damian Figueroa</a>
+        <IconLinks links={[{
+            icon: "mdiGithub",
+            url: "https://github.com/djfigs1"
+        },
+        {
+            icon: "mdiLinkedin",
+            url: "https://linkedin.com/in/djfigs"
+        },
+        {
+            icon: "mdiEmail",
+            url: "mailto:djfigs@outlook.com"
+        }]} />
+    </Group>
 </header>
 <style>
     header {
@@ -29,19 +32,15 @@ import IconLinks from "./IconLinks.astro";
         right: 0;
         top: 0;
         z-index: 1;
-        color: white;
         font-size: 1.25em;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
         background: var(--dark-background);
         border-top: 0;
         border-left: 0;
         border-right: 0;
         border-bottom: 0.25rem;
         border-color: var(--dj-red);
-
         border-style: solid;
+        box-shadow: 0 10px 20px var(--dark-background);
     }
 
     header > * {
