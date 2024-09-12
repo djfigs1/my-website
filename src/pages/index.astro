@@ -9,6 +9,7 @@ import Grid from "../layouts/Grid.astro";
 import GridBackground from "../components/GridBackground.astro";
 import Divider from "../components/Divider.astro";
 import Tactile from "../assets/img/tactile.png";
+import XRC from "../assets/img/xrc.png";
 import Button from "../components/Button.astro";
 ---
 
@@ -93,19 +94,32 @@ import Button from "../components/Button.astro";
           >
         </Group>
       </Card>
+      <Card>
+        <GridBackground>
+          <Image src={XRC} alt="XR Club Website homepage" />
+        </GridBackground>
+        <h2>XR Club Website</h2>
+        <Group>
+          I made the website for the XR Club at the University of Maryland (I am
+          also the President!). It not only looks cool, but it connects to a
+          internal database to take our dynamic content (events, roster, etc.)
+          and build lightweight static webpages with Astro.
+          <Button href="https://xr.umd.edu">Visit XR Club</Button>
+        </Group>
+      </Card>
     </Grid>
     <Divider />
     <h1>Resume</h1>
     <Card>
       <Group justifyContent="center" alignItems="center">
-        <object id="resume" data="/docs/resume.pdf" type="application/pdf" />
+        <object id="resume" data="/docs/resume.pdf" type="application/pdf"
+        ></object>
         <Button href="/docs/resume.pdf" download="resume.pdf">Download</Button>
       </Group>
     </Card>
   </Content>
 </Page>
 <style>
-
   .banner-container {
     position: relative;
     border-radius: 0.5em;
