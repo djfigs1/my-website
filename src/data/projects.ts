@@ -5,6 +5,7 @@ import xrcThumbnail from "../assets/img/projects/xrc.png";
 import faradayThumbnail from "../assets/img/projects/faraday.webp";
 import boltcamThumbnail from "../assets/img/projects/boltcam.jpg";
 import icxrPortalThumbnail from "../assets/img/projects/icxrportal.png";
+import fireThumbnail from "../assets/img/projects/fire.jpg";
 
 export const PROJECTS_LIST: Project[] = [
   {
@@ -41,7 +42,7 @@ export const PROJECTS_LIST: Project[] = [
     title: 'A "Fire" Training App',
     description:
       'A group of friends and I attended MIT Reality Hack 2024 and built A "Fire" Training App, which lets you practice fire evacuations in your own home using the power of mixed-reality. We ended up winning the Enhanced Education track! I am the one with the fox beanie in the video :)',
-    thumbnail: terralityThumbnail,
+    thumbnail: fireThumbnail,
     link: {
       text: "View Video",
       url: "https://www.youtube.com/watch?v=fMpgtK0AlfQ",
@@ -50,7 +51,7 @@ export const PROJECTS_LIST: Project[] = [
   {
     title: "ICXR Portal",
     description:
-      "I built a web portal for Intercollegiate XR (ICXR) which allows the community team to easily create events and have them announced within our Discord server and calendar. It uses TypeScript, React, and PayloadCMS.",
+      "I built a web portal for Intercollegiate XR (ICXR) which allows the community team to easily create events and have them announced within our Discord server and calendar. It uses TypeScript, React, and Payload CMS.",
     thumbnail: icxrPortalThumbnail,
   },
   {

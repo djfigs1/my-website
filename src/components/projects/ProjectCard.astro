@@ -70,6 +70,7 @@ const { title, description, thumbnailImage, link } = Astro.props;
   .project-card-description {
     text-align: justify;
     font-weight: 600;
+    flex: 1;
   }
 
   .project-card-thumbnail {
@@ -125,6 +126,10 @@ const { title, description, thumbnailImage, link } = Astro.props;
     .project-card-button-container {
       justify-content: stretch;
       align-items: stretch;
+    }
+
+    .project-card-container .portfolio-button {
+      flex: 1;
     }
   }
 </style>
