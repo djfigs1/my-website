@@ -1,7 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import Fox from "../assets/img/fox.png"
+import Fox from "../assets/img/fox.png";
 import { getImage } from "astro:assets";
 
 const FoxImage = await getImage({ src: Fox });
@@ -11,7 +11,7 @@ const FoxHref = FoxImage.src;
 <!doctype html>
 <html>
   <head>
-    <title>Damian Figueroa</title>
+    <title>D.J. Figueroa</title>
     <meta name="theme-color" content="#110000" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,7 +21,7 @@ const FoxHref = FoxImage.src;
       rel="stylesheet"
     />
     <link rel="icon" type="image/png" sizes="any" href={FoxHref} />
-    <link rel="apple-touch-icon" type="image/png" href={FoxHref}>
+    <link rel="apple-touch-icon" type="image/png" href={FoxHref} />
   </head>
   <body>
     <Header />
@@ -32,39 +32,49 @@ const FoxHref = FoxImage.src;
   </body>
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NT0WWDP3GH"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NT0WWDP3GH"
+  ></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-    gtag('config', 'G-NT0WWDP3GH');
+    gtag("config", "G-NT0WWDP3GH");
   </script>
 </html>
 <style>
   :root {
-    --dj-red: #e61a31;
+    --dj-red: #f73d3d;
     --dj-orange: #e6611a;
+    --dj-yellow: #ffc847;
+    --dj-purple: #ac4bfb;
+    --dj-blue: #0089fc;
+    --card-color: #000000;
+
+    --dj-gradient:
+      radial-gradient(circle at 20% 30%, var(--dj-red) 0%, transparent 35%),
+      radial-gradient(circle at 80% 20%, var(--dj-yellow) 0%, transparent 40%),
+      radial-gradient(circle at 70% 80%, var(--dj-purple) 0%, transparent 45%),
+      radial-gradient(circle at 15% 75%, var(--dj-blue) 0%, transparent 38%),
+      linear-gradient(var(--dj-red), var(--dj-purple));
+
     --primary: var(--dj-red);
-    --secondary: var(--dj-orange);
-    --text: rgb(255, 216, 216);
-    --background: #1c0000;
-    --dark-background: #110000;
+    --secondary: var(--dj-red);
+    --text: rgb(237, 237, 237);
+    --background: #111111;
+    --dark-background: #111111;
   }
 
   body {
     margin: 0;
     box-sizing: border-box;
     font-family: "Outfit", sans-serif;
+    font-size: 1.25em;
     background: var(--dark-background);
     color: var(--text);
-  }
-  
-  main::before {
-    background: var(--background);
-    display: block;
-    height: 6rem;
-    content: "";
+    position: relative;
   }
 
   @media (orientation: portrait) {
@@ -76,7 +86,6 @@ const FoxHref = FoxImage.src;
   main {
     min-height: 100vh;
   }
-
 </style>
 
 <style is:global>
@@ -89,15 +98,18 @@ const FoxHref = FoxImage.src;
     color: var(--secondary);
   }
 
-  h1 {
-    color: var(--primary);
-  }
-
+  h1,
   h2,
   h3,
   h4,
   h5,
-  h6 {
-    color: var(--secondary);
+  h6,
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    color: var(--primary);
   }
 </style>

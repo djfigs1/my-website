@@ -1,0 +1,74 @@
+---
+import { Icon } from "astro-icon/components";
+
+type Props = {
+  icon: string;
+  url: string;
+};
+
+const { icon, url } = Astro.props;
+---
+
+<a
+  class="social-link-button"
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  ><div class="icon-container">
+    <Icon name={icon} />
+  </div></a
+>
+<style>
+  .social-link-button {
+    width: 48px;
+    height: 48px;
+    background-size: 90px;
+    padding: 0;
+    border-radius: 100%;
+    color: black;
+    display: block;
+    --glow-blur: 20px;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .icon-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  .social-link-button:nth-child(4n + 1) {
+    background: var(--dj-red);
+  }
+
+  .social-link-button:nth-child(4n + 1):hover {
+    box-shadow: 0 0 var(--glow-blur) var(--dj-red);
+  }
+
+  .social-link-button:nth-child(4n + 2) {
+    background: var(--dj-yellow);
+  }
+
+  .social-link-button:nth-child(4n + 2):hover {
+    box-shadow: 0 0 var(--glow-blur) var(--dj-yellow);
+  }
+
+  .social-link-button:nth-child(4n + 3) {
+    background: var(--dj-blue);
+  }
+
+  .social-link-button:nth-child(4n + 3):hover {
+    box-shadow: 0 0 var(--glow-blur) var(--dj-blue);
+  }
+
+  .social-link-button:nth-child(4n + 4) {
+    background: var(--dj-purple);
+  }
+
+  .social-link-button:nth-child(4n + 4):hover {
+    box-shadow: 0 0 var(--glow-blur) var(--dj-purple);
+  }
+</style>

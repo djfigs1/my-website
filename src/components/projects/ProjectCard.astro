@@ -1,0 +1,130 @@
+---
+import { Image } from "astro:assets";
+import Button from "../Button.astro";
+import { Link } from "../../types/project";
+
+type Props = {
+  title: string;
+  description: string;
+  thumbnailImage: ImageMetadata;
+  link?: Link;
+};
+
+const { title, description, thumbnailImage, link } = Astro.props;
+---
+
+<div class="project-card-container">
+  <div class="project-card-thumbnail">
+    <Image src={thumbnailImage} alt={`Thumbnail for ${title}`} />
+  </div>
+  <div class="project-card-details">
+    <h3>{title}</h3>
+    <span class="project-card-description">{description}</span>
+    {
+      link && (
+        <div class="project-card-button-container">
+          <Button href={link.url}>{link.text}</Button>
+        </div>
+      )
+    }
+  </div>
+</div>
+<style>
+  .project-card-container {
+    border-radius: 20px;
+    display: flex;
+    padding: 4px;
+    overflow: hidden;
+    border-radius: 18px;
+    flex-direction: row;
+    gap: 8px;
+    background: var(--project-card-color);
+  }
+
+  .project-card-container:nth-child(4n + 1) {
+    --project-card-color: var(--dj-red);
+  }
+
+  .project-card-container:nth-child(4n + 2) {
+    --project-card-color: var(--dj-yellow);
+  }
+
+  .project-card-container:nth-child(4n + 3) {
+    --project-card-color: var(--dj-blue);
+  }
+
+  .project-card-container:nth-child(4n + 4) {
+    --project-card-color: var(--dj-purple);
+  }
+
+  .project-card-container .portfolio-button {
+    --button-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    font-weight: 900;
+  }
+
+  .project-card-details h3 {
+    font-weight: 900;
+  }
+
+  .project-card-description {
+    text-align: justify;
+    font-weight: 600;
+  }
+
+  .project-card-thumbnail {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    background: color-mix(in srgb, var(--project-card-color) 10%, black) 20%;
+    padding: 4px;
+  }
+
+  .project-card-thumbnail img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 12px;
+    object-fit: contain;
+  }
+
+  .project-card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 0.75em;
+    padding: 24px;
+    flex: 1;
+    color: black;
+  }
+
+  .project-card-button-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+
+  @media (max-width: 800px) {
+    .project-card-container {
+      flex-direction: column;
+    }
+
+    .project-card-thumbnail {
+      width: 100%;
+      aspect-ratio: 4/3;
+    }
+
+    .project-card-thumbnail img {
+      height: 100%;
+    }
+
+    .project-card-button-container {
+      justify-content: stretch;
+      align-items: stretch;
+    }
+  }
+</style>

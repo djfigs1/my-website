@@ -1,0 +1,24 @@
+---
+import { PROJECTS_LIST } from "../../data/projects";
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<div class="projects-container">
+  {
+    PROJECTS_LIST.map((project) => (
+      <ProjectCard
+        title={project.title}
+        description={project.description}
+        thumbnailImage={project.thumbnail}
+        link={project.link}
+      />
+    ))
+  }
+</div>
+<style>
+  .projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+</style>

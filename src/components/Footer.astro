@@ -2,18 +2,19 @@
 import Fox from "../assets/img/fox.png";
 import { Image } from "astro:assets";
 import Group from "../layouts/Group.astro";
+import SocialLinks from "./socials/SocialLinks.astro";
 ---
 
 <footer>
-  <Group alignItems="center">
-    Hecho con amor
-    <Image
-      src={Fox}
-      alt="The best animal in the world: the fox."
-      width={64}
-      height={64}
-    />
-  </Group>
+  <div class="footer-inner">
+    <Group alignItems="center">
+      Hecho con amor
+      <SocialLinks />
+      <p class="copyright">
+        &copy; {new Date().getFullYear()} D.J. Figueroa. All rights reserved.
+      </p>
+    </Group>
+  </div>
 </footer>
 <style>
   footer {
@@ -23,11 +24,17 @@ import Group from "../layouts/Group.astro";
     padding-bottom: 2rem;
     background-color: var(--dark-background);
     min-width: 100%;
-    border-top: 0.1rem;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 0;
-    border-style: solid;
-    border-color: var(--primary);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .copyright {
+    font-size: 0.75rem;
+    color: rgba(237, 237, 237, 0.7);
   }
 </style>

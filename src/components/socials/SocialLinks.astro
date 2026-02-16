@@ -1,0 +1,14 @@
+---
+import { SOCIAL_LINKS } from "../../data/socials";
+import SocialLinkButton from "./SocialLinkButton.astro";
+---
+
+<div class="social-link-list">
+  {SOCIAL_LINKS.map((sl) => <SocialLinkButton url={sl.url} icon={sl.icon} />)}
+</div>
+<style>
+  .social-link-list {
+    display: flex;
+    gap: 1em;
+  }
+</style>

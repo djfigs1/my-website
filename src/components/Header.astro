@@ -4,24 +4,10 @@ import IconLinks from "./IconLinks.astro";
 ---
 
 <header>
-    <Group justifyContent="space-between" direction="row" alignItems="center">
-        <a href="/">Damian Figueroa</a>
-        <IconLinks links={[{
-            icon: "mdiGithub",
-            url: "https://github.com/djfigs1"
-        },
-        {
-            icon: "mdiLinkedin",
-            url: "https://linkedin.com/in/djfigs"
-        },
-        {
-            icon: "mdiEmail",
-            url: "mailto:djfigs@outlook.com"
-        }]} />
-    </Group>
 </header>
 <style>
     header {
+        display: none;
         position: fixed;
         box-sizing: border-box;
         padding-left: 2rem;

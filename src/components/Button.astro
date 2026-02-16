@@ -1,11 +1,13 @@
 ---
+import { Icon } from "astro-icon/components";
+
 type Props = {
   href: string;
   buttonColor?: string;
   download?: string;
 };
 
-let { href, buttonColor, download } = Astro.props;
+let { href, buttonColor, download, ...props } = Astro.props;
 ---
 
 <a
@@ -14,13 +16,16 @@ let { href, buttonColor, download } = Astro.props;
   href={href}
   style={{ "--button-color": buttonColor }}
   download={download}
+  class="portfolio-button"
+  {...props}
 >
   <slot />
+  <Icon name="material-symbols:arrow-right-alt-rounded" />
 </a>
 <style>
-  a {
+  .portfolio-button {
     box-sizing: content-box;
-    --button-color: var(--secondary);
+    --button-color: var(--primary);
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     padding-top: 0.5rem;
@@ -29,17 +34,18 @@ let { href, buttonColor, download } = Astro.props;
     text-align: center;
     color: white;
     text-decoration: none;
-    display: inline-block;
-    border: solid 0.2em var(--button-color);
-    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    background: var(--button-color);
     border-radius: 9999px;
-    text-transform: uppercase;
     backdrop-filter: blur(10px);
     transition: box-shadow 0.5s;
     box-shadow: 0px 0px 25px transparent;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
   }
 
-  a:hover {
+  .portfolio-button:hover {
     transition: box-shadow 0.1s;
     box-shadow: 0px 0px 25px var(--button-color);
   }

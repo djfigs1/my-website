@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets";
+import ProfilePictureImg from "../assets/img/me.jpeg";
+---
+
+<div class="profile-picture">
+  <Image src={ProfilePictureImg} alt="D.J.'s profile picture" />
+</div>
+<style>
+  .profile-picture {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 999px;
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+import ProfilePicture from "./ProfilePicture.astro";
+import SocialLinks from "./socials/SocialLinks.astro";
+---
+
+<div class="welcome-banner">
+  <div class="welcome-text-container">
+    <h2 class="welcome-header">
+      Welcome! My name is <span class="welcome-name">D.J.</span>
+    </h2>
+    <SocialLinks />
+  </div>
+  <ProfilePicture />
+</div>
+<style>
+  .welcome-banner {
+    display: flex;
+    align-items: center;
+    margin-top: 96px;
+    gap: 32px;
+  }
+  .welcome-text-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .welcome-header {
+    font-size: 2.5em;
+
+    line-height: 1.25em;
+    margin: 0;
+  }
+  .welcome-name {
+    --welcome-gradient-angle: 0turn;
+    background: conic-gradient(
+      from var(--welcome-gradient-angle),
+      var(--dj-red),
+      var(--dj-orange),
+      var(--dj-yellow),
+      var(--dj-purple),
+      var(--dj-blue),
+      var(--dj-red)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    animation: welcome-gradient-rotate 30s linear infinite;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+  }
+
+  @property --welcome-gradient-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0turn;
+  }
+
+  @keyframes welcome-gradient-rotate {
+    to {
+      --welcome-gradient-angle: 1turn;
+    }
+  }
+
+  @media (max-width: 799px) {
+    .welcome-banner {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
+    .welcome-text-container {
+      align-items: center;
+    }
+  }
+</style>
