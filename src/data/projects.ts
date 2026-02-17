@@ -2,7 +2,7 @@ import { Project } from "../types/project";
 import terralityThumbnail from "../assets/img/projects/terrality.jpg";
 import tactileThumbnail from "../assets/img/projects/tactile.png";
 import xrcThumbnail from "../assets/img/projects/xrc.png";
-import faradayThumbnail from "../assets/img/projects/faraday.webp";
+import faradayThumbnail from "../assets/img/projects/faraday.jpg";
 import boltcamThumbnail from "../assets/img/projects/boltcam.jpg";
 import icxrPortalThumbnail from "../assets/img/projects/icxrportal.png";
 import fireThumbnail from "../assets/img/projects/fire.jpg";
@@ -21,7 +21,7 @@ export const PROJECTS_LIST: Project[] = [
   {
     title: "Boltcam",
     description:
-      "A DIY weather camera built from a Raspberry Pi and a camera module. Designed for the Cooperative Institute for Satellite Earth System Studies (CISESS). It continuously monitors the sky for lightning strikes to verify the measurements of a lightning measurement system based in Washington D.C. A web interface enables users to view the camera feed and download historical clips.",
+      "A DIY weather camera built from a Raspberry Pi and a camera module. It continuously monitors the sky for lightning strikes to verify the measurements of a lightning measurement system based in Washington D.C. A web interface enables users to view the camera feed and download historical clips.",
     thumbnail: boltcamThumbnail,
     link: {
       text: "View Website",
