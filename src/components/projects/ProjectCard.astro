@@ -40,6 +40,8 @@ const { title, description, thumbnailImage, link } = Astro.props;
     align-items: start;
     gap: 8px;
     background: var(--project-card-color);
+    font-size: 1.1em;
+    line-height: 1.5em;
   }
 
   .project-card-container:nth-child(4n + 1) {
@@ -69,7 +71,7 @@ const { title, description, thumbnailImage, link } = Astro.props;
   }
 
   .project-card-description {
-    text-align: justify;
+    text-wrap: pretty;
     font-weight: 600;
     flex: 1;
   }
